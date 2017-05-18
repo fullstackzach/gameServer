@@ -46,12 +46,12 @@ Pacman.prototype.movePacman = function(e){
     
     if (ourWorld.map[this.y][this.x] == 1){
         ourWorld.map[this.y][this.x] = 0;
-        score+=10;
+        ourWorld.score+=10;
         ourWorld.displayWorld();
         ourWorld.displayScore();
     }else if(ourWorld.map[this.y][this.x] == 3){
         ourWorld.map[this.y][this.x] = 0;
-        score+=100;
+        ourWorld.score+=100;
         ourWorld.displayWorld();
         ourWorld.displayScore();
     }else if(ourWorld.map[this.y][this.x] == 4){

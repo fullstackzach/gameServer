@@ -82,8 +82,7 @@ World.prototype.displayGhost = function(){
 World.prototype.checkCollision = function(){
     if (this.pacman.x === this.ghost.x && this.ghost.y === this.pacman.y){
         alert("You got eaten!");
-        clearInterval(pacmanmove);
-        clearInterval(ghostmove);
+        newGame();
         //throw new Error('Game over man!');
     }
 }

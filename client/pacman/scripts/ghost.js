@@ -3,11 +3,11 @@ function Ghost(){
     this.y = 14;
 }
 
-Ghost.prototype.moveGhost = function(){
-    var direction = Math.floor(Math.random() * 4);
+Ghost.prototype.moveGhost = function(direction){
+    //var direction = Math.floor(Math.random() * 4);
     // 0 = up, 1 = right, 2 = down, 3 = left
     
-    if (direction == 3){
+    if (direction.keyCode == 37){
         //left
         // $('#ghost').css("transform","rotate(0deg)");
         
@@ -18,10 +18,10 @@ Ghost.prototype.moveGhost = function(){
             }
         }
         else {
-            this.moveGhost();
+            //this.moveGhost();
         }
     }
-    else if(direction == 1){
+    else if(direction.keyCode == 39){
         //right
         // $('#ghost').css("transform","rotate(deg)");
         if(ourWorld.map[this.y][this.x+1] != 2){
@@ -31,10 +31,10 @@ Ghost.prototype.moveGhost = function(){
             }
         }
         else {
-            this.moveGhost();
+            //this.moveGhost();
         }
     }
-    else if(direction == 0){
+    else if(direction.keyCode == 38){
         //up
         if(this.y==0){
             this.y = ourWorld.map.length-1;
@@ -42,10 +42,10 @@ Ghost.prototype.moveGhost = function(){
             this.y--;
         }
         else {
-            this.moveGhost();
+            //this.moveGhost();
         }
     }
-    else if(direction == 2){
+    else if(direction.keyCode == 40){
         //down
         if(this.y==ourWorld.map.length-1){
             this.y = 0;
@@ -53,7 +53,7 @@ Ghost.prototype.moveGhost = function(){
             this.y++;
         }
         else {
-            this.moveGhost();
+            //this.moveGhost();
         }
     }
 
