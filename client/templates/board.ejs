@@ -8,15 +8,31 @@
     <script type="text/javascript" src="../pacman/scripts/ghost.js"></script>
     <script type="text/javascript" src="../pacman/scripts/world.js"></script>
     <script type="text/javascript" src="../pacman/scripts/scripts.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var socket = io();
+            document.onkeydown = function(e){
+                var type = $('#playerType').attr('data-name');
+                if(type=='ghost'){
+                    socket.emit('ghostmove', e.keyCode);
+                }else if(type=='pacman'){
+                    socket.emit('pacmanmove', e.keyCode);
+                }
+            }
+        });
+    </script>
+
 </head>
 <body>
 	<div id='container'>
 		<div id='world'></div>
 		<div id='pacman'></div>
 		<div id='ghost'></div>
-		<div id='name'><%=firstName%> <%=lastName%></div>
+		<div id='name'>You are playing as a <%=player%>: <%=firstName%> <%=lastName%></div>
 		<div id='age'><%=age%></div>
 		<div id='score'>0</div>
+        <div id='playerType' style='display:none' data-name='<%=player%>'></div>
 	</div>
 </body>
 </html>
